@@ -31,14 +31,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Add copy link event listener
-    const copyLinkElement = document.getElementById('copyLink');
-    if (copyLinkElement) {
-        copyLinkElement.addEventListener('click', function(e) {
-            e.preventDefault();
-            copyLink();
-        });
-    }
+    // Add share option event listeners (persona and roadmap pages use ids instead of onclick)
+    const shareHandlers = {
+        emailShare: shareViaEmail,
+        whatsappShare: shareViaWhatsApp,
+        copyLink: copyLink
+    };
+    Object.entries(shareHandlers).forEach(([id, handler]) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.addEventListener('click', function(e) {
+                e.preventDefault();
+                handler();
+            });
+        }
+    });
 });
 
 // Share functions
@@ -177,7 +184,9 @@ function showCopyError() {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
         if (target) {
             target.scrollIntoView({
                 behavior: 'smooth',
