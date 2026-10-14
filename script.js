@@ -499,21 +499,9 @@ function validateEmail(email) {
     return re.test(email);
 }
 
-// Add loading animation
-window.addEventListener('load', () => {
-    document.body.classList.add('loaded');
-});
-
-// Add CSS for loading state and timeline initial state
+// Add CSS for active nav link and timeline initial state
 const style = document.createElement('style');
 style.textContent = `
-    body:not(.loaded) {
-        opacity: 0;
-        transition: opacity 0.5s ease;
-    }
-    body.loaded {
-        opacity: 1;
-    }
     .nav-link.active {
         color: #ffffff !important;
     }
