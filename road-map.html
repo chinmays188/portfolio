@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Road Map - Chinmay Shandilya</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <a href="index.html">CS</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="persona.html" class="nav-link">Persona</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="road-map.html" class="nav-link">Roadmap</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <span class="edited-time">Edited Just Now</span>
+                <a href="chinmay_resume_2025.pdf" class="nav-link resume-link" download>
+                    <i class="fas fa-file-alt"></i>
+                    Resume
+                </a>
+                <div class="theme-toggle">
+                    <button class="theme-btn" id="themeToggle">
+                        <i class="fas fa-sun" id="lightIcon"></i>
+                        <i class="fas fa-moon" id="darkIcon"></i>
+                    </button>
+                </div>
+                <div class="share-container">
+                    <button class="share-btn" id="shareBtn">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <div class="share-dropdown" id="shareDropdown">
+                        <a href="#" class="share-option" id="emailShare">
+                            <i class="fas fa-envelope"></i>
+                            Share via Email
+                        </a>
+                        <a href="#" class="share-option" id="whatsappShare">
+                            <i class="fab fa-whatsapp"></i>
+                            Share via WhatsApp
+                        </a>
+                        <a href="#" class="share-option" id="copyLink">
+                            <i class="fas fa-link"></i>
+                            Copy Link
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Roadmap Content -->
+    <section class="roadmap-page">
+        <div class="container">
+            <!-- Roadmap Headline -->
+            <div class="roadmap-headline">
+                <h1 class="roadmap-title">Life Roadmap</h1>
+                <p class="roadmap-subtitle">Not just feedback or pain points-this is my evolving CX journey, where I navigate life's touchpoints, experiments, and breakthroughs</p>
+            </div>
+            
+            <!-- Roadmap Sections Container -->
+            <div class="roadmap-sections-container">
+                <!-- To Do Section -->
+                <div class="roadmap-section todo-section">
+                    <h2 class="section-title">
+                        <span class="animated-dot"></span>
+                        <span class="section-label">To Do</span>
+                    </h2>
+                    <p class="section-description">Ideas brewing, but haven't crossed my mental product review yet.</p>
+                    <div class="roadmap-cards" id="todoCards">
+                        <div class="roadmap-card" draggable="true">
+                            <div class="card-tag life">Life</div>
+                            <h3>CX Newsletter</h3>
+                            <p>Create and launch a customer experience newsletter to share insights and best practices</p>
+                            <div class="drag-handle">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="roadmap-card" draggable="true">
+                            <div class="card-tag learning">Learning</div>
+                            <h3>Fix mobile view</h3>
+                            <p>Optimize website layout and functionality for mobile devices and responsive design</p>
+                            <div class="drag-handle">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="roadmap-card" draggable="true">
+                            <div class="card-tag learning">Learning</div>
+                            <h3>Complete AI Eval Course</h3>
+                            <p>Finish the AI evaluation course to enhance understanding of artificial intelligence assessment</p>
+                            <div class="drag-handle">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+                        <div class="roadmap-card" draggable="true">
+                            <div class="card-tag learning">Learning</div>
+                            <h3>Intraday trading</h3>
+                            <p>Studying and understanding intraday trading strategies and financial planning</p>
+                            <div class="drag-handle">
+                                <i class="fas fa-grip-vertical"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- In Progress Section -->
+                <div class="roadmap-section in-progress-section">
+                    <h2 class="section-title">
+                        <span class="animated-dot"></span>
+                        <span class="section-label">In Progress</span>
+                    </h2>
+                    <p class="section-description">Currently in the lab, experimenting and iterating.</p>
+                    <div class="roadmap-cards">
+                        <div class="roadmap-card office-work-card" title="Confidential work in progress">
+                            <div class="card-tag work">Work</div>
+                            <div class="office-work-header">
+                                <img src="mmt icon.png" alt="MakeMyTrip" class="mmt-icon">
+                                <h3>Office work</h3>
+                                <i class="fas fa-lock lock-icon"></i>
+                            </div>
+                            <p>Managing daily office responsibilities and team coordination</p>
+                            <div class="card-date">Ongoing</div>
+                        </div>
+                        <div class="roadmap-card">
+                            <div class="card-tag life">Life</div>
+                            <h3>Plan a trip with parents</h3>
+                            <p>Organizing and planning a family vacation with parents</p>
+                            <div class="card-date">ETA: Q4 2025</div>
+                        </div>
+
+                        <div class="roadmap-card">
+                            <div class="card-tag learning">Learning</div>
+                            <h3>AI tools</h3>
+                            <p>Exploring and mastering artificial intelligence tools and technologies</p>
+                            <div class="card-date">ETA: Q4 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Shipped Section -->
+                <div class="roadmap-section shipped-section">
+                    <h2 class="section-title">
+                        <span class="animated-dot"></span>
+                        <span class="section-label">Shipped</span>
+                    </h2>
+                    <p class="section-description">Successfully launched and delivered to the world.</p>
+                    <div class="roadmap-cards">
+                        <div class="roadmap-card">
+                            <div class="card-tag life">Life</div>
+                            <h3>Married to love</h3>
+                            <p>Found and committed to my life partner</p>
+                            <div class="card-date">Go live: 2023</div>
+                        </div>
+                        <div class="roadmap-card">
+                            <div class="card-tag life">Life</div>
+                            <h3>Graduated B-school</h3>
+                            <p>Did my MBA from SPJIMR and INSEAD Paris</p>
+                            <div class="card-date">Go live: 2024</div>
+                        </div>
+                        <div class="roadmap-card">
+                            <div class="card-tag work">Work</div>
+                            <h3>Got a CX Strategy role</h3>
+                            <p>Secured a strategic position in customer experience</p>
+                            <div class="card-date">Go live: 2024</div>
+                        </div>
+                        <div class="roadmap-card">
+                            <div class="card-tag learning">Learning</div>
+                            <h3>Build my portfolio</h3>
+                            <p>Created and deployed a personal portfolio website</p>
+                            <div class="card-date">Go live: 2025</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-section">
+                <div class="comments-header">
+                    <h3>You can drag my website task but not life task. Feel free to drop a thought.</h3>
+                </div>
+                <div class="comments-form">
+                    <textarea id="commentInput" placeholder="Share your thoughts, feedback, or just say hello..." rows="4"></textarea>
+                    <button id="submitComment" class="submit-btn">
+                        <i class="fas fa-plus"></i>
+                        Add a Comment
+                    </button>
+                </div>
+                <div class="comments-list" id="commentsList">
+                    <!-- Comments will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Written and Vibe Coded with <i class="fas fa-heart"></i> in India by Chinmay Shandilya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Comments functionality
+        document.getElementById('submitComment').addEventListener('click', function() {
+            const commentInput = document.getElementById('commentInput');
+            const comment = commentInput.value.trim();
+            
+            if (comment) {
+                addComment(comment);
+                commentInput.value = '';
+            }
+        });
+
+        function addComment(text) {
+            const commentsList = document.getElementById('commentsList');
+            const commentDiv = document.createElement('div');
+            commentDiv.className = 'comment-item';
+            
+            const timestamp = new Date().toLocaleString();
+            commentDiv.innerHTML = `
+                <div class="comment-content">
+                    <p>${text}</p>
+                    <span class="comment-timestamp">${timestamp}</span>
+                </div>
+            `;
+            
+            commentsList.appendChild(commentDiv);
+        }
+    </script>
+</body>
+</html> 

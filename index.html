@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinmay Shandilya - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="nav-logo">
+                    <a href="index.html">CS</a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="persona.html" class="nav-link">Persona</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="road-map.html" class="nav-link">Roadmap</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <span class="edited-time">Edited Just Now</span>
+                <a href="chinmay_resume_2025.pdf" class="nav-link resume-link" download>
+                    <i class="fas fa-file-alt"></i>
+                    Resume
+                </a>
+                <div class="theme-toggle">
+                    <button class="theme-btn" id="themeToggle">
+                        <i class="fas fa-sun" id="lightIcon"></i>
+                        <i class="fas fa-moon" id="darkIcon"></i>
+                    </button>
+                </div>
+                <div class="share-container">
+                    <button class="share-btn">
+                        <i class="fas fa-share-alt"></i>
+                    </button>
+                    <div class="share-dropdown">
+                        <div class="share-option" onclick="shareViaEmail()">
+                            <i class="fas fa-envelope"></i>
+                            Email
+                        </div>
+                        <div class="share-option" onclick="shareViaWhatsApp()">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp
+                        </div>
+                        <div class="share-option" onclick="copyLink()">
+                            <i class="fas fa-link"></i>
+                            Copy Link
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm Chinmay Shandilya</span></h1>
+                <h2 class="hero-subtitle">Building and scaling high-impact journeys in India's consumer tech</h2>
+                <p class="hero-description">
+                    With 6+ years of experience turning data, design, and user empathy into impactful solutions, I specialize in shaping customer experiences for B2C marketplaces. This portfolio reflects my strategic, user-focused approach to building products that deliver real value and lasting growth.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Portfolio Exists Section -->
+    <section id="why-portfolio" class="why-portfolio">
+        <div class="container">
+            <h2 class="section-title centered-title">Why This Portfolio Exists ?</h2>
+            <div class="why-content">
+                <p>
+                    This portfolio isn't just a resume-it's a living product that showcases my end-to-end thinking, mental models, and impact stories from India's top travel and mobility platforms. My goal is to transparently share how I transform CX challenges into 'aha' moments for millions, leveraging AI, intuition, and relentless execution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents Section -->
+    <section id="table-of-contents" class="table-of-contents">
+        <div class="container">
+            <h2 class="section-title centered-title">Table of Contents</h2>
+            <div class="toc-content">
+                <div class="toc-table">
+                    <div class="toc-header">
+                        <div class="toc-field">Field</div>
+                        <div class="toc-description">Description</div>
+                    </div>
+                    <div class="toc-row">
+                        <div class="toc-field">Epic</div>
+                        <div class="toc-description">Transforming India's travel and mobility with scalable, AI-powered CX that simplifies journeys and drives growth
+                        </div>
+                    </div>
+                    <div class="toc-row">
+                        <div class="toc-field">Document Status</div>
+                        <div class="toc-description">Living Portfolio - Updated Q1 2025</div>
+                    </div>
+                    <div class="toc-row">
+                        <div class="toc-field">Impact</div>
+                        <div class="toc-description"><b>MakeMyTrip</b>
+                            <br>
+                            • Launched GPT-powered chatbot achieving <span class="achievement">83%</span> self-serve rate and ₹<span class="achievement">38 crore</span> annual savings with <span class="achievement">26%</span> fewer human agents
+                            <br>
+                            • Developed Voicebot that improved CSAT by <span class="achievement">4%</span> and reduced ticket handling time by <span class="achievement">134 seconds</span>
+                            <br>
+                            • Created loyalty program CX strategy that boosted NPS by <span class="achievement">13.5 points</span> for high LTV users
+                            <br>
+                            • Led <span class="achievement">25+</span> cross-functional team driving AI-powered CX transformation and process excellence
+                            <br>
+                            <br>
+                            <b>Zoomcar</b>
+                            <br>
+                            • Led marketplace launch across <span class="achievement">3+</span> South Asian countries, scaling host supply and boosting GMV by <span class="achievement">40%</span>
+                            <br>
+                            • Automated payouts, cutting host churn by <span class="achievement">13%</span>
+                            <br>
+                            • Integrated APIs to improve delivery timeliness by <span class="achievement">24%</span>
+                            <br>
+                            • Built dashboard reducing car unavailability by <span class="achievement">38%</span>, lowering cancellations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why I Build Like This Section -->
+    <section id="why-build" class="why-build">
+        <div class="container">
+            <h2 class="section-title centered-title">Why I Build Like This?</h2>
+            <div class="why-build-content">
+                <div class="why-build-text">
+                    <p>
+                        I build products by designing journeys, not just stacking features. Every customer touchpoint is a chance to create something real, not just chase vanity metrics. With 6+ years in CX and AI for India's travel and mobility ecosystem, I know impact comes from empathy over analytics. I work with curiosity, breaking assumptions and focusing on what truly serves users. I'm not here to ship faster-I'm here to ship products that stick, scale, and make a difference.
+                    </p>
+                </div>
+                <div class="why-build-image">
+                    <img src="generated-image.png" alt="Stylized Builder Sketch" class="builder-sketch">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My North Star Section -->
+    <section id="north-star" class="north-star">
+        <div class="container">
+            <h2 class="section-title centered-title">My North Star</h2>
+            <p class="north-star-subtitle"><bdo dir="ltr"></bdo>behind every decision I make</p>
+            <div class="north-star-content">
+                <p>
+                    "The best products don't just solve problems-they anticipate needs, eliminate friction, and create moments of delight users didn't even know they wanted." 
+                    <br>
+                    Building for India's next billion users with empathy, data, and relentless focus on impact.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title centered-title">Solution Space</h2>
+            <p class="solution-description">What happens when ideas don't stop at the whiteboard? Like many, I have projects and concepts floating in my notes or buried in random files. But believe it or not, some of those ideas actually come to life-and that's what you'll find here.</p>
+            
+            <div class="projects-container">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-year">2025</div>
+                        <div class="project-content">
+                            <h3><i class="fas fa-laptop-code"></i> My Portfolio</h3>
+                            <p>Building this portfolio together with AI assistance, showcasing my journey and projects.</p>
+                            <div class="project-tech">
+                                <span>Product Sense</span>
+                                <span>Prompt Engineering</span>
+                                <span>Generative AI</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-year">2025</div>
+                        <div class="project-content">
+                            <h3><i class="fas fa-robot"></i> RAG Based Chatbot</h3>
+                            <p>Advanced chatbot using Retrieval-Augmented Generation for intelligent responses.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>RAG</span>
+                                <span>AI/ML</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-year">2025</div>
+                        <div class="project-content">
+                            <h3><i class="fas fa-chart-line"></i> Data Analytics Dashboard</h3>
+                            <p>Interactive dashboard for data visualization and analytics.</p>
+                            <div class="project-tech">
+                                <span>React</span>
+                                <span>D3.js</span>
+                                <span>Python</span>
+                            </div>
+                            <div class="coming-soon">
+                                Coming Soon <i class="fas fa-arrow-up coming-soon-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-year">2026</div>
+                        <div class="project-content">
+                            <h3><i class="fas fa-mobile-alt"></i> Mobile App Development</h3>
+                            <p>Cross-platform mobile application with modern UI/UX design.</p>
+                            <div class="project-tech">
+                                <span>React Native</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <div class="coming-soon">
+                                Coming Soon <i class="fas fa-arrow-up coming-soon-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-year">2027</div>
+                        <div class="project-content">
+                            <h3><i class="fas fa-brain"></i> AI-Powered Analytics Platform</h3>
+                            <p>Advanced analytics platform leveraging machine learning for insights.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>TensorFlow</span>
+                                <span>React</span>
+                            </div>
+                            <div class="coming-soon">
+                                Coming Soon <i class="fas fa-arrow-up coming-soon-arrow"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-arrow scroll-left" id="scrollLeftArrow">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="scroll-arrow scroll-right" id="scrollRightArrow">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title centered-title">Contact</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-hand-icon">👋</div>
+                    <p>Want to connect, collaborate, or just say hi?</p>
+                    <p>Reach out via any of the channels below</p>
+                    <div class="contact-details">
+                        <div class="contact-row">
+                            <div class="contact-item-left">
+                                <i class="fas fa-envelope contact-icon"></i>
+                                <span class="contact-label">Email</span>
+                            </div>
+                            <div class="contact-item-right">
+                                <a href="mailto:pgpm2023.chinmay@spjimr.org" class="contact-value">pgpm2023.chinmay@spjimr.org</a>
+                                <i class="fas fa-arrow-up clickable-arrow"></i>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="contact-item-left">
+                                <i class="fas fa-phone contact-icon"></i>
+                                <span class="contact-label">Phone</span>
+                            </div>
+                            <div class="contact-item-right">
+                                <span class="contact-value">+919479583117</span>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="contact-item-left">
+                                <i class="fab fa-linkedin contact-icon"></i>
+                                <span class="contact-label">LinkedIn</span>
+                            </div>
+                            <div class="contact-item-right">
+                                <a href="https://www.linkedin.com/in/chinmayshandilya/" target="_blank" class="contact-value">chinmayshandilya</a>
+                                <i class="fas fa-arrow-up clickable-arrow"></i>
+                            </div>
+                        </div>
+                        <div class="contact-row">
+                            <div class="contact-item-left">
+                                <i class="fas fa-map-marker-alt contact-icon"></i>
+                                <span class="contact-label">Location</span>
+                            </div>
+                            <div class="contact-item-right">
+                                <span class="contact-value">New Delhi, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Written and Vibe Coded with <i class="fas fa-heart"></i> in India by Chinmay Shandilya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> </html> 
+
