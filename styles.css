@@ -2203,6 +2203,11 @@ html {
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
 .comments-list {
     display: flex;
     flex-direction: column;
@@ -3399,5 +3404,53 @@ body.light-theme .toc-description {
     to {
         transform: translateX(100%);
         opacity: 0;
+    }
+}
+
+/* Mobile fixes */
+@media (max-width: 900px) {
+    /* Straighten persona photos on small screens (the desktop rotation uses !important) */
+    .hero-images-left .hero-image:nth-child(n),
+    .hero-images-right .hero-image:nth-child(n) {
+        transform: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Icon-only resume link so the hamburger menu fits on screen */
+    .resume-link {
+        font-size: 0 !important;
+        padding: 0.5rem !important;
+        gap: 0 !important;
+    }
+
+    .resume-link i {
+        font-size: 1rem;
+    }
+
+    .share-dropdown {
+        right: 0;
+    }
+
+    .toc-header,
+    .toc-row {
+        min-width: 0;
+    }
+
+    .roadmap-subtitle {
+        white-space: normal;
+        overflow: visible;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-images-left,
+    .hero-images-right {
+        gap: 1rem;
+    }
+
+    .hero-image {
+        width: 150px;
+        height: 150px;
     }
 }

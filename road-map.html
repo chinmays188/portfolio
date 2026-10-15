@@ -205,13 +205,15 @@
                 <div class="comments-header">
                     <h3>You can drag my website task but not life task. Feel free to drop a thought.</h3>
                 </div>
-                <div class="comments-form">
-                    <textarea id="commentInput" placeholder="Share your thoughts, feedback, or just say hello..." rows="4"></textarea>
-                    <button id="submitComment" class="submit-btn">
-                        <i class="fas fa-plus"></i>
-                        Add a Comment
+                <form class="comments-form" id="commentForm" name="roadmap-comments" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                    <input type="hidden" name="form-name" value="roadmap-comments">
+                    <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
+                    <textarea id="commentInput" name="comment" placeholder="Share your thoughts, feedback, or just say hello... (add your name or LinkedIn if you'd like a reply)" rows="4" required></textarea>
+                    <button type="submit" id="submitComment" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Send to Chinmay
                     </button>
-                </div>
+                </form>
                 <div class="comments-list" id="commentsList">
                     <!-- Comments will be displayed here -->
                 </div>
@@ -228,30 +230,46 @@
 
     <script src="script.js"></script>
     <script>
-        // Comments functionality
-        document.getElementById('submitComment').addEventListener('click', function() {
+        // Comments: submitted to Netlify Forms (stored in the Netlify dashboard and emailed to Chinmay)
+        document.getElementById('commentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const form = this;
             const commentInput = document.getElementById('commentInput');
+            const submitBtn = document.getElementById('submitComment');
             const comment = commentInput.value.trim();
-            
-            if (comment) {
-                addComment(comment);
+            if (!comment) return;
+
+            submitBtn.disabled = true;
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(new FormData(form)).toString()
+            }).then(response => {
+                if (!response.ok) throw new Error(response.status);
+                addComment(comment, 'Sent to Chinmay — thank you!');
                 commentInput.value = '';
-            }
+            }).catch(() => {
+                addComment(comment, 'Could not send right now — please try again or reach out on LinkedIn.');
+            }).finally(() => {
+                submitBtn.disabled = false;
+            });
         });
 
-        function addComment(text) {
+        function addComment(text, status) {
             const commentsList = document.getElementById('commentsList');
             const commentDiv = document.createElement('div');
             commentDiv.className = 'comment-item';
-            
-            const timestamp = new Date().toLocaleString();
-            commentDiv.innerHTML = `
-                <div class="comment-content">
-                    <p>${text}</p>
-                    <span class="comment-timestamp">${timestamp}</span>
-                </div>
-            `;
-            
+
+            const content = document.createElement('div');
+            content.className = 'comment-content';
+            const p = document.createElement('p');
+            p.textContent = text;
+            const meta = document.createElement('span');
+            meta.className = 'comment-timestamp';
+            meta.textContent = status + ' · ' + new Date().toLocaleString();
+            content.append(p, meta);
+            commentDiv.appendChild(content);
+
             commentsList.appendChild(commentDiv);
         }
     </script>

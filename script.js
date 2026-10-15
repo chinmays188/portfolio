@@ -305,8 +305,9 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 
-// Parallax effect for hero section
+// Parallax effect for hero section (desktop only: on phones it pushes the hero over the next section)
 window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) return;
     const scrolled = window.pageYOffset;
     const hero = document.querySelector('.hero');
     if (hero) {
@@ -401,7 +402,7 @@ function handleDrop(e) {
     const targetCard = e.target.closest('.roadmap-card');
     
     if (draggedCard && targetCard && draggedCard !== targetCard) {
-        const cards = Array.from(todoCards.querySelectorAll('.roadmap-card'));
+        const cards = Array.from(targetCard.parentNode.querySelectorAll('.roadmap-card'));
         const draggedIndex = cards.indexOf(draggedCard);
         const targetIndex = cards.indexOf(targetCard);
         
@@ -412,3 +413,40 @@ function handleDrop(e) {
         }
     }
 }
+
+// Touch drag for To Do cards: HTML5 drag-and-drop doesn't fire on phones,
+// so dragging by the grip handle reorders cards with touch events instead
+document.addEventListener('DOMContentLoaded', function() {
+    const todoCards = document.getElementById('todoCards');
+    if (!todoCards) return;
+
+    let draggedCard = null;
+
+    todoCards.querySelectorAll('.drag-handle').forEach(handle => {
+        handle.style.touchAction = 'none';
+
+        handle.addEventListener('touchstart', function(e) {
+            draggedCard = handle.closest('.roadmap-card');
+            draggedCard.classList.add('dragging');
+            e.preventDefault();
+        }, { passive: false });
+    });
+
+    document.addEventListener('touchmove', function(e) {
+        if (!draggedCard) return;
+        e.preventDefault();
+        const touch = e.touches[0];
+        const targetCard = document.elementFromPoint(touch.clientX, touch.clientY)?.closest('#todoCards .roadmap-card');
+        if (!targetCard || targetCard === draggedCard) return;
+
+        const rect = targetCard.getBoundingClientRect();
+        const after = touch.clientY > rect.top + rect.height / 2;
+        todoCards.insertBefore(draggedCard, after ? targetCard.nextSibling : targetCard);
+    }, { passive: false });
+
+    document.addEventListener('touchend', function() {
+        if (!draggedCard) return;
+        draggedCard.classList.remove('dragging');
+        draggedCard = null;
+    });
+});
