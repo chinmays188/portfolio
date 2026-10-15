@@ -270,22 +270,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const scrollRightArrow = document.getElementById('scrollRightArrow');
     const projectsGrid = document.querySelector('.projects-grid');
     
-    console.log('Scroll arrows found:', scrollLeftArrow, scrollRightArrow);
-    console.log('Projects grid found:', projectsGrid);
-    
     if (scrollLeftArrow && scrollRightArrow && projectsGrid) {
         const scrollAmount = 350 + 32; // card width + gap
         
         // Right arrow scroll
         scrollRightArrow.addEventListener('click', function() {
-            console.log('Right arrow clicked');
             projectsGrid.scrollLeft += scrollAmount;
             updateArrowVisibility();
         });
         
         // Left arrow scroll
         scrollLeftArrow.addEventListener('click', function() {
-            console.log('Left arrow clicked');
             projectsGrid.scrollLeft -= scrollAmount;
             updateArrowVisibility();
         });
@@ -299,102 +294,8 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Initial arrow visibility
         updateArrowVisibility();
-        
-        console.log('Event listeners added successfully');
-    } else {
-        console.log('Some elements not found');
     }
 });
-
-// Skill items hover effects
-document.querySelectorAll('.skill-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        item.style.transform = 'scale(1.1)';
-    });
-    
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = 'scale(1)';
-    });
-});
-
-// Social links hover effects
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', () => {
-        link.style.transform = 'translateY(-5px) scale(1.1)';
-    });
-    
-    link.addEventListener('mouseleave', () => {
-        link.style.transform = 'translateY(0) scale(1)';
-    });
-});
-
-// Table of contents items hover effects
-document.querySelectorAll('.toc-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        item.style.transform = 'translateY(-5px)';
-    });
-    
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = 'translateY(0)';
-    });
-});
-
-// Persona items hover effects
-document.querySelectorAll('.persona-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        item.style.transform = 'translateY(-5px)';
-    });
-    
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = 'translateY(0)';
-    });
-});
-
-// Solution items hover effects
-document.querySelectorAll('.solution-item').forEach(item => {
-    item.addEventListener('mouseenter', () => {
-        item.style.transform = 'translateY(-5px)';
-    });
-    
-    item.addEventListener('mouseleave', () => {
-        item.style.transform = 'translateY(0)';
-    });
-});
-
-// Resume stats hover effects
-document.querySelectorAll('.resume-stat').forEach(stat => {
-    stat.addEventListener('mouseenter', () => {
-        stat.style.transform = 'translateY(-3px)';
-    });
-    
-    stat.addEventListener('mouseleave', () => {
-        stat.style.transform = 'translateY(0)';
-    });
-});
-
-// Active navigation link highlighting
-function updateActiveNavLink() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-}
-
-window.addEventListener('scroll', updateActiveNavLink);
 
 // Add active class to nav links
 document.querySelectorAll('.nav-link').forEach(link => {
@@ -413,102 +314,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Counter animation for stats
-function animateCounters() {
-    const counters = document.querySelectorAll('.stat h3');
-    const speed = 200;
-    
-    counters.forEach(counter => {
-        const updateCount = () => {
-            const target = parseInt(counter.getAttribute('data-target') || counter.innerText.replace('+', ''));
-            const count = parseInt(counter.innerText.replace('+', ''));
-            const increment = target / speed;
-            
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment) + '+';
-                setTimeout(updateCount, 1);
-            } else {
-                counter.innerText = target + '+';
-            }
-        };
-        updateCount();
-    });
-}
-
-// Trigger counter animation when about section is visible
-const aboutSection = document.querySelector('.about');
-if (aboutSection) {
-    const aboutObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                aboutObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    aboutObserver.observe(aboutSection);
-}
-
-// Timeline animation
-function animateTimeline() {
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    timelineItems.forEach((item, index) => {
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateX(0)';
-        }, index * 200);
-    });
-}
-
-// Trigger timeline animation when experience section is visible
-const experienceSection = document.querySelector('.experience');
-if (experienceSection) {
-    const experienceObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateTimeline();
-                experienceObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    experienceObserver.observe(experienceSection);
-}
-
-// Roadmap animation
-function animateRoadmap() {
-    const roadmapItems = document.querySelectorAll('.roadmap-item');
-    roadmapItems.forEach((item, index) => {
-        setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateX(0)';
-        }, index * 300);
-    });
-}
-
-// Trigger roadmap animation when road-map section is visible
-const roadMapSection = document.querySelector('.road-map');
-if (roadMapSection) {
-    const roadMapObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateRoadmap();
-                roadMapObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    roadMapObserver.observe(roadMapSection);
-}
-
-// Form validation (if you add a contact form later)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Add CSS for active nav link and timeline initial state
+// Add CSS for active nav link
 const style = document.createElement('style');
 style.textContent = `
     .nav-link.active {
@@ -516,22 +322,6 @@ style.textContent = `
     }
     .nav-link.active::after {
         width: 100% !important;
-    }
-    .timeline-item {
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: all 0.6s ease;
-    }
-    .timeline-item:nth-child(even) {
-        transform: translateX(50px);
-    }
-    .roadmap-item {
-        opacity: 0;
-        transform: translateX(-50px);
-        transition: all 0.6s ease;
-    }
-    .roadmap-item:nth-child(even) {
-        transform: translateX(50px);
     }
 `;
 document.head.appendChild(style); 
