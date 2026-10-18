@@ -3523,3 +3523,35 @@ body.light-theme .impact-company b {
 body.light-theme .toc-description .achievement {
     color: #1B5E20 !important;
 }
+
+/* Project card cover images */
+.project-card-featured .project-card-image {
+    position: absolute;
+    top: 48px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 700 / 540;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
+    mask-image: linear-gradient(to bottom, #000 86%, transparent 100%);
+}
+
+.project-card-featured .project-year {
+    z-index: 3;
+}
+
+/* Taller cards so the full cover image sits above the title */
+.project-card-featured,
+.project-card-featured .project-card-body {
+    min-height: 440px;
+}
+
+/* Small phones: cards fill the scroller instead of being clipped at the right edge */
+@media (max-width: 480px) {
+    .projects-grid .project-card {
+        min-width: 100%;
+        max-width: 100%;
+        width: 100%;
+    }
+}

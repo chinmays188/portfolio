@@ -271,17 +271,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const projectsGrid = document.querySelector('.projects-grid');
     
     if (scrollLeftArrow && scrollRightArrow && projectsGrid) {
-        const scrollAmount = 350 + 32; // card width + gap
+        // One card per click: measured, because cards are narrower on small phones
+        const scrollAmount = () => {
+            const card = projectsGrid.querySelector('.project-card');
+            const gap = parseFloat(getComputedStyle(projectsGrid).columnGap) || 32;
+            return card.offsetWidth + gap;
+        };
         
         // Right arrow scroll
         scrollRightArrow.addEventListener('click', function() {
-            projectsGrid.scrollLeft += scrollAmount;
+            projectsGrid.scrollLeft += scrollAmount();
             updateArrowVisibility();
         });
         
         // Left arrow scroll
         scrollLeftArrow.addEventListener('click', function() {
-            projectsGrid.scrollLeft -= scrollAmount;
+            projectsGrid.scrollLeft -= scrollAmount();
             updateArrowVisibility();
         });
         
