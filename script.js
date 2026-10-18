@@ -455,3 +455,22 @@ document.addEventListener('DOMContentLoaded', function() {
         draggedCard = null;
     });
 });
+
+// Back-to-top button: appears after scrolling down, on every page
+document.addEventListener('DOMContentLoaded', function() {
+    const backToTop = document.createElement('button');
+    backToTop.type = 'button';
+    backToTop.className = 'back-to-top';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    backToTop.innerHTML = '<i class="fas fa-arrow-up" aria-hidden="true"></i>';
+    document.body.appendChild(backToTop);
+
+    const toggleVisibility = () => backToTop.classList.toggle('visible', window.scrollY > 400);
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
+    toggleVisibility();
+
+    backToTop.addEventListener('click', () => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+});

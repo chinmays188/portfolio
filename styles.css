@@ -3555,3 +3555,62 @@ body.light-theme .toc-description .achievement {
         width: 100%;
     }
 }
+
+/* Back-to-top button */
+.back-to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: rgba(20, 20, 20, 0.92);
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease, border-color 0.2s ease, color 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    z-index: 900;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+    border-color: #4A90E2;
+    color: #4A90E2;
+    outline: none;
+}
+
+body.light-theme .back-to-top {
+    background: rgba(255, 255, 255, 0.95);
+    color: #111111;
+    border-color: #cccccc;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .back-to-top:hover,
+body.light-theme .back-to-top:focus-visible {
+    border-color: #2563eb;
+    color: #2563eb;
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        right: 16px;
+        bottom: 16px;
+        width: 42px;
+        height: 42px;
+    }
+}
