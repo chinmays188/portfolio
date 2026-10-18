@@ -3454,3 +3454,72 @@ body.light-theme .toc-description {
         height: 150px;
     }
 }
+
+/* Impact section: company logos and role lines */
+.impact-company {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 0.9rem;
+}
+
+.impact-company-next {
+    margin-top: 2rem;
+}
+
+.impact-company b {
+    display: block;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+body.light-theme .impact-company b {
+    color: #111111;
+}
+
+.impact-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.impact-role {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.7;
+    margin-top: 0.15rem;
+}
+
+.impact-subrole {
+    margin: 1.25rem 0 0.6rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.impact-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.impact-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.55rem;
+}
+
+.impact-list li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+}
+
+/* Pale green numbers are unreadable on the light theme's background */
+body.light-theme .toc-description .achievement {
+    color: #1B5E20 !important;
+}
